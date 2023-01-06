@@ -8,5 +8,5 @@ export class PlaceholderItem implements IFormItem {
 }
 
 const PlaceholderItemComponent : FC<FormItemProps> = (props: FormItemProps) => {
-    return <div className={cn("PlaceholderItem", "FormItem", props.className)} style={props.style}/>
+    return <div className={cn("PlaceholderItem", "FormItem", props.className)}/>
 }

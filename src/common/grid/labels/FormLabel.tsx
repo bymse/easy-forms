@@ -1,6 +1,7 @@
 import React from "react";
 import {FormItemProps, IFormItem} from "../IFormItem";
 import cn from "classnames";
+import {FormItemComponentBase} from "../FormItemComponentBase";
 
 export enum LabelMode {
     Regular,
@@ -10,6 +11,10 @@ export enum LabelMode {
 }
 
 export class LabelFormItem implements IFormItem {
+    public static getName(mode: LabelMode) {
+        return `${LabelFormItem}${mode}`;
+    }
+
     Component: React.FC<FormItemProps>;
 
     public mode: LabelMode;
@@ -28,9 +33,14 @@ type FormLabelFormItemComponentProps = FormItemProps & { labelMode: LabelMode, t
 
 const FormLabelFormItemComponent: React.FC<FormLabelFormItemComponentProps> = (props: FormLabelFormItemComponentProps) => {
     if (props.mode === "tools") {
-        return <span className={cn(props.className, "FormItem", "FormLabel")} style={getStyle(props.labelMode)}>
+        return <FormItemComponentBase
+            type={LabelFormItem.getName(props.labelMode)}
+            className={cn(props.className, "FormLabel")}
+        >
+            <span style={getStyle(props.labelMode)}>
                 {props.text}
             </span>
+        </FormItemComponentBase>
     }
 
     return <input/>

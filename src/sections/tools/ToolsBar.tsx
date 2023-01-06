@@ -10,8 +10,8 @@ export function ToolsBar() {
     return <section className="ToolsBar">
         <Section title="Inputs">
             <TextInputFormItemComponent disabled={true} mode="tools" className="ToolsItem"/>
-            <NumberInputFormItemComponent disabled={true} mode="tools" className="ToolsItem"/>
             <CheckboxFormItemComponent disabled={true} mode="tools" className="ToolsItem"/>
+            <NumberInputFormItemComponent disabled={true} mode="tools" className="ToolsItem"/>
             <SubmitFormItemComponent disabled={true} mode="tools" className="ToolsItem"/>
         </Section>
         <Section title="Labels">
