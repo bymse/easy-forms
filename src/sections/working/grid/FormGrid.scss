@@ -1,0 +1,10 @@
+.FormGrid {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.FormGridItem {
+  width: 160px;
+  height: 40px;
+}
