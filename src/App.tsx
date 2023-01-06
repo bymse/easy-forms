@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import "./App.scss";
+import {WorkingSection} from "./sections/working/WorkingSection";
+import {ToolsSection} from "./sections/tools/ToolsSection";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export function App() {
+    return <main className="App">
+        <div className="ToolsSectionWrapper">
+            <ToolsSection/>
+        </div>
+        <div className="WorkingSectionWrapper">
+            <WorkingSection/>
+        </div>
+    </main>
+
 }
-
-export default App;
