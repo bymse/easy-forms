@@ -14,3 +14,12 @@
     outline: none;
   }
 }
+
+.FormLabel {
+  background: var(--color-secondary);
+  padding: 4px 8px;
+  font-size: 16px;
+  border: 1px dashed var(--color-primary);
+  display: flex;
+  align-items: center;
+}
