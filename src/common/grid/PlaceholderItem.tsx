@@ -1,21 +1,12 @@
 import React, {FC} from "react";
 import cn from "classnames";
-import {FormGridItemProps, IFormGridItem} from "./IFormGridItem";
+import {FormItemProps, IFormItem} from "./IFormItem";
 import "./PlaceholderItem.scss"
 
-export class PlaceholderItem implements IFormGridItem {
-    constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-    }
-    
-    ReactComponent: React.FC<FormGridItemProps> = PlaceholderItemComponent;
-    x: number;
-    y: number;
+export class PlaceholderItem implements IFormItem {
+    Component: React.FC<FormItemProps> = PlaceholderItemComponent;
 }
 
-const PlaceholderItemComponent : FC<FormGridItemProps> = (props: FormGridItemProps) => {
-    return <div className={cn("PlaceholderItem", props.className)} style={props.style}>
-        
-    </div>
+const PlaceholderItemComponent : FC<FormItemProps> = (props: FormItemProps) => {
+    return <div className={cn("PlaceholderItem", "FormItem", props.className)} style={props.style}/>
 }

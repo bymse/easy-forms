@@ -1,7 +1,6 @@
 :root {
   --color-primary: #000;
   --color-secondary: #fff;
-  --color-tertiary: #00f;
   
   --color-working-section-bg: #F6F6F6;
   --color-tools-section-bg: #EAE9E9;
@@ -13,6 +12,7 @@ html, body {
   margin: 0;
   height: 100%;
   font-family: sans-serif;
+  font-size: 16px;
 }
 
 * {

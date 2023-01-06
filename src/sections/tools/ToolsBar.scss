@@ -1,0 +1,33 @@
+.ToolsBar {
+  background: var(--color-tools-section-bg);
+  height: 100%;
+  display: flex;
+  padding: 24px 32px 16px;
+}
+
+.ToolsSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ToolsSectionTitle {
+  align-self: start;
+}
+
+.ToolsSection {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: start;
+  height: 80%;
+}
+
+.ToolsItem {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
