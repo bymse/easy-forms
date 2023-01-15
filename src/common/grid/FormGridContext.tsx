@@ -1,4 +1,4 @@
-import React, {createContext, PropsWithChildren, useContext, useMemo} from "react";
+import React, {createContext, PropsWithChildren, useContext, useMemo, useState} from "react";
 import {FormGrid} from "./FormGrid";
 
 interface IFormGridContext {
@@ -6,14 +6,18 @@ interface IFormGridContext {
 }
 
 const FormGridContext = createContext<IFormGridContext>({
-    formGrid: new FormGrid()
+    formGrid: null!
 });
 
 export const useGrid = (): FormGrid => useContext(FormGridContext).formGrid;
 
 export const FormGridContextProvider: React.FC<PropsWithChildren> = ({children}) => {
-    const grid = useMemo<FormGrid>(() => new FormGrid(), []);
-    
+    const [updateKey, setUpdateKey] = useState(0);
+    const grid = useMemo<FormGrid>(
+        () => new FormGrid(() => setUpdateKey(e => e + 1)),
+        [setUpdateKey]
+    );
+
     return <FormGridContext.Provider value={{formGrid: grid}}>
         {children}
     </FormGridContext.Provider>

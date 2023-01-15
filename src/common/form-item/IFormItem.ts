@@ -4,7 +4,7 @@ export interface FormItemProps {
     className?: string;
 }
 
-export type GridFromItemProps = FormItemProps & {x: number, y: number};
+export type GridFromItemProps = FormItemProps;
 export type ToolsFormItemProps = FormItemProps;
 export type PreviewFormItemProps = FormItemProps;
 

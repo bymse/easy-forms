@@ -19,14 +19,18 @@ export class FormSubmit implements IFormItem {
 
 const DisabledComponent: React.FC<ToolsFormItemProps> = (props: ToolsFormItemProps) => {
     return <FormItemComponentBase type={FormItemType.Submit}>
-        <Submit className={cn(props.className, "FormSubmitDisabled")}/>
+        <Submit className={props.className} disabled={false}/>
     </FormItemComponentBase>
 }
 
 const PreviewComponent: React.FC<PreviewFormItemProps> = (props: PreviewFormItemProps) => {
-    return <Submit className={props.className}/>
+    return <Submit className={props.className} disabled={false}/>
 }
 
-const Submit = (props: { className?: string}) => {
-    return <button type="submit" className={cn(props.className, "FormItem", "FormSubmit")}></button>
-}
+const Submit = React.forwardRef<HTMLButtonElement, { className?: string, disabled: boolean }>((props, ref) => {
+    return <button disabled={props.disabled} ref={ref} type="submit"
+                   className={cn(props.className, "FormItem", "FormSubmit")}
+    >
+        Submit
+    </button>
+});

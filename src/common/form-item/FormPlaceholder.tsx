@@ -14,7 +14,11 @@ import {useDrop} from "react-dnd";
 import {useGrid} from "../grid/FormGridContext";
 
 export class FormPlaceholder implements IFormItem {
-    GridComponent: React.FC<GridFromItemProps> = GridComponent;
+    constructor(x: number, y: number) {
+        this.GridComponent = p => <PlaceholderGridComponent {...p} x={x} y={y} />;
+    }
+    
+    GridComponent: React.FC<GridFromItemProps>;
     PreviewComponent: React.FC<PreviewFormItemProps> = PreviewComponent;
     ToolsComponent: React.FC<ToolsFormItemProps> = ToolsComponent;
     type: FormItemType = FormItemType.Placeholder;
@@ -28,7 +32,9 @@ const PreviewComponent: FC<PreviewFormItemProps> = (props: PreviewFormItemProps)
     return <span></span>;
 }
 
-const GridComponent: FC<GridFromItemProps> = (props: GridFromItemProps) => {
+type GridProps = GridFromItemProps & { x: number, y: number };
+
+const PlaceholderGridComponent: FC<GridProps> = (props: GridProps) => {
     const grid = useGrid();
     const [,drop] = useDrop<{itemType: FormItemType}>(
         () => ({

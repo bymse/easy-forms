@@ -36,12 +36,15 @@ const PreviewComponent: React.FC<PreviewFormItemProps> = (props: PreviewFormItem
     const [value, setValue] = useState(false);
     return <Checkbox disabled={false} value={value} onValueChange={v => setValue(v)}/>;
 }
+type Props = { disabled: boolean; value: boolean, onValueChange?: (val: boolean) => void };
 
-const Checkbox = (props: { disabled: boolean; value: boolean, onValueChange?: (val: boolean) => void}) => {
+const Checkbox = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     return <input
+        ref={ref}
         className="FormCheckbox"
         disabled={props.disabled}
         type="checkbox"
         onChange={e => props.onValueChange && props.onValueChange(e.target.checked)}
+        checked={props.value}
     />;
-}
+});

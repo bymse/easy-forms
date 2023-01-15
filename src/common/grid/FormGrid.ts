@@ -1,17 +1,20 @@
 import {FormItemType, IFormItem} from "../form-item/IFormItem";
 import {FormPlaceholder} from "../form-item/FormPlaceholder";
+import {formItemsFactory} from "../form-item/formItemsFactory";
 
 export class FormGrid {
     private static readonly rowsCount: number = 4;
     private static readonly columnsCount: number = 2;
 
-    public readonly itemsGrid: IFormItem[][] = [];
+    private readonly itemsGrid: IFormItem[][] = [];
+    private readonly forceUpdate: () => void;
     
-    constructor() {
+    constructor(forceUpdate: () => void) {
+        this.forceUpdate = forceUpdate;
         for (let i = 0; i < FormGrid.rowsCount; i++) {
             this.itemsGrid[i] = [];
             for (let j = 0; j < FormGrid.columnsCount; j++) {
-                this.itemsGrid[i][j] = new FormPlaceholder();
+                this.itemsGrid[i][j] = new FormPlaceholder(i, j); 
             }
         }
     }
@@ -30,7 +33,8 @@ export class FormGrid {
     
 
     public addItem(x: number, y: number, item: FormItemType): void {
-        
+        this.itemsGrid[x][y] = formItemsFactory(item);
+        this.forceUpdate();
     }
     
     public removeItem(x: number, y: number): void {
