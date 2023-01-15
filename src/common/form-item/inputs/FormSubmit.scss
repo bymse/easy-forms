@@ -1,0 +1,8 @@
+.FormSubmit {
+  color: var(--color-primary);
+  background: var(--color-app-buttons);
+}
+
+.FormSubmitDisabled {
+  pointer-events: none;
+}

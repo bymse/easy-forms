@@ -1,0 +1,6 @@
+
+.FormLabel {
+  &, &:active {
+    border: 1px dashed var(--color-primary);
+  }
+}

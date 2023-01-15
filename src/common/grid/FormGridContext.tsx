@@ -1,15 +1,15 @@
 import React, {createContext, PropsWithChildren, useContext, useMemo} from "react";
-import {FormGrid, IFormGrid} from "./FormGrid";
+import {FormGrid} from "./FormGrid";
 
 interface IFormGridContext {
-    formGrid: IFormGrid;
+    formGrid: FormGrid;
 }
 
 const FormGridContext = createContext<IFormGridContext>({
     formGrid: new FormGrid()
 });
 
-export const useGrid = (): IFormGrid => useContext(FormGridContext).formGrid;
+export const useGrid = (): FormGrid => useContext(FormGridContext).formGrid;
 
 export const FormGridContextProvider: React.FC<PropsWithChildren> = ({children}) => {
     const grid = useMemo<FormGrid>(() => new FormGrid(), []);

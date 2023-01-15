@@ -1,7 +1,6 @@
 
-.FormItemCheckbox {
+.FormCheckbox {
   background: var(--color-secondary);
-  
   appearance: none;
   margin: 0;
   height: 40px;
@@ -23,10 +22,11 @@
   }
 }
 
-.FormItemCheckboxTools {
+.FormCheckboxWithTitle {
   border: 1px dashed var(--color-primary);
   border-left-width: 0;
   display: flex;
   align-items: center;
   gap: 8px;
+  padding-left: 0;
 }

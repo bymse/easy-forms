@@ -1,13 +1,7 @@
-import {IFormItem} from "./IFormItem";
-import {PlaceholderItem} from "./PlaceholderItem";
+import {FormItemType, IFormItem} from "../form-item/IFormItem";
+import {FormPlaceholder} from "../form-item/FormPlaceholder";
 
-export interface IFormGrid {
-    items: IFormItem[];
-    columns: number;
-    rows: number;
-}
-
-export class FormGrid implements IFormGrid {
+export class FormGrid {
     private static readonly rowsCount: number = 4;
     private static readonly columnsCount: number = 2;
 
@@ -17,7 +11,7 @@ export class FormGrid implements IFormGrid {
         for (let i = 0; i < FormGrid.rowsCount; i++) {
             this.itemsGrid[i] = [];
             for (let j = 0; j < FormGrid.columnsCount; j++) {
-                this.itemsGrid[i][j] = new PlaceholderItem();
+                this.itemsGrid[i][j] = new FormPlaceholder();
             }
         }
     }
@@ -35,7 +29,7 @@ export class FormGrid implements IFormGrid {
     }
     
 
-    public addItem(x: number, y: number, item: IFormItem): void {
+    public addItem(x: number, y: number, item: FormItemType): void {
         
     }
     

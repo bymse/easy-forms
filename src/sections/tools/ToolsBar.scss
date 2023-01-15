@@ -15,18 +15,19 @@
 
 .ToolsSectionTitle {
   align-self: center;
+  margin-top: 24px;
 }
 
 .ToolsSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-}
+  
+  & .FormItem {
+    cursor: grab;
 
-.ToolsItem {
-  cursor: grab;
-
-  &:active {
-    cursor: grabbing;
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
